@@ -14,5 +14,8 @@ public class Car {
     private String brand;
     private String model;
     private long loan_identifier;
+    @OneToOne
+    @JoinTable(name="Client", joinColumns = @JoinColumn(name="rented_car"), inverseJoinColumns = @JoinColumn(name="client_id"))
+    private Client client;
 
 }

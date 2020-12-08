@@ -6,10 +6,12 @@ CREATE TABLE CAR(
 );
 
 CREATE TABLE CLIENT(
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    client_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(80) NOT NULL,
-    lastName VARCHAR(100) NOT NULL,
-    rentedCar BIGINT
+    last_name VARCHAR(100) NOT NULL,
+    rented_car BIGINT
 );
 
-ALTER TABLE CLIENT ADD CONSTRAINT rentedCar_loanIdentifier FOREIGN KEY (rentedCar) REFERENCES CAR(loan_identifier);
+ALTER TABLE CLIENT
+    ADD CONSTRAINT rentedCar_loanIdentifier
+    FOREIGN KEY (rented_car) REFERENCES CAR(loan_identifier);
