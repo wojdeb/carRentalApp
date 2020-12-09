@@ -37,8 +37,23 @@ public class CarController {
         return clientService.addClient(client);
     }
 
-    @PostMapping("/cars/rent")
-    public void rentCar(@RequestBody Car car){
-        carService.rentCar(car);
+    @PostMapping("/cars/rent/{client_id}/{car_id}")
+    public Car rentCar(@PathVariable Long client_id, @PathVariable Long car_id){
+        return carService.rentCar(client_id, car_id);
+    }
+
+    @PostMapping("/cars/return/{client_id}/{car_id}")
+    public Car returnCar(@PathVariable Long client_id, @PathVariable Long car_id){
+        return carService.returnCar(client_id, car_id);
+    }
+
+    @PutMapping("/cars/edit")
+    public Car editCar(@RequestBody Car car) {
+        return carService.editCar(car);
+    }
+
+    @DeleteMapping("/cars/delete/{id}")
+    public void deleteCar(@PathVariable long id){
+        carService.deleteCar(id);
     }
 }

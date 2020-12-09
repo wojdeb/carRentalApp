@@ -18,9 +18,9 @@ public class Car {
     private String brand;
     private String model;
     private long loan_identifier;
-    @OneToOne
-    @JoinColumn(name="rented_car")
-    private Client client;
+    //@OneToMany
+    //@JoinColumn(name="rented_car", updatable = false, insertable = true)
+    //private Client client;
 
 
 }
