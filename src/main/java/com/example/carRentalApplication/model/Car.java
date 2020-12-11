@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-
 @Entity
 @Getter
 @Setter
@@ -17,10 +16,5 @@ public class Car {
     private long id;
     private String brand;
     private String model;
-    private long loan_identifier;
-    //@OneToMany
-    //@JoinColumn(name="rented_car", updatable = false, insertable = true)
-    //private Client client;
-
-
+    private long rentedByClient;
 }

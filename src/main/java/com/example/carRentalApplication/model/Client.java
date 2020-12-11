@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -14,9 +13,8 @@ import java.util.List;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long client_id;
+    private long clientId;
     private String name;
     private String lastName;
-    private long rented_car;
-
+    private long rentedCar;
 }

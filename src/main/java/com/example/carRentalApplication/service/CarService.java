@@ -28,8 +28,8 @@ public class CarService {
     public Car rentCar(Long client_id, Long car_id) {
         Car car1 = carRepository.findById(car_id).orElseThrow();
         Client client = clientRepository.findById(client_id).orElseThrow();
-        car1.setLoan_identifier(client.getClient_id());
-        client.setRented_car(car1.getId());
+        car1.setRentedByClient(client.getClientId());
+        client.setRentedCar(car1.getId());
         return car1;
     }
 
@@ -37,8 +37,8 @@ public class CarService {
     public Car returnCar(Long client_id, Long car_id) {
         Car car1 = carRepository.findById(car_id).orElseThrow();
         Client client = clientRepository.findById(client_id).orElseThrow();
-        car1.setLoan_identifier(0);
-        client.setRented_car(0);
+        car1.setRentedByClient(0);
+        client.setRentedCar(0);
         return car1;
     }
 
