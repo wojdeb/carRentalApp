@@ -1,6 +1,6 @@
 # carRentalApp
 
-A backend of application of car rental company. There is a several REST endpoint as add client and car, obtain client list and car list, editing, removing, renting and returning a cars. 
+A backend of application of car rental company. There are a several REST endpoint as add client and car, obtain client list and car list, editing, removing, renting and returning a cars. 
 REST API documentation is available on a shared swagger docs, which is available under "localhost:8080/swagger-ui.html" - also link is provided on the landing page.
 
 ## Instructions
