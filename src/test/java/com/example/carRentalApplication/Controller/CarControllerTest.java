@@ -113,28 +113,27 @@ class CarControllerTest {
     @Transactional
     void rentCar() throws Exception {
 
-        Client client = new Client();
-        client.setName("TestName");
-        client.setLastName("TestLastName");
-        Car car = new Car();
-        car.setBrand("TestBrand");
-        car.setModel("TestModel");
+        Client clientInRentCarMethod = new Client();
+        clientInRentCarMethod.setName("TestName");
+        clientInRentCarMethod.setLastName("TestLastName");
+        Car carInRentCarMethod = new Car();
+        carInRentCarMethod.setBrand("TestBrand");
+        carInRentCarMethod.setModel("TestModel");
 
-        clientRepository.save(client);
-        carRepository.save(car);
+        clientRepository.save(clientInRentCarMethod);
+        carRepository.save(carInRentCarMethod);
 
 
         RequestBuilder request = MockMvcRequestBuilders
-                .post("/cars/rent/{client_id}/{car_id}/", client.getClientId(), car.getId());
+                .post("/cars/rent/{client_id}/{car_id}/", clientInRentCarMethod.getClientId(), carInRentCarMethod.getId());
 
         MvcResult result = mvc.perform(request)
                 .andExpect(status().is(200))
                 .andReturn();
 
-        Car car1 = objectMapper.readValue(result.getResponse().getContentAsString(), Car.class);
-        assertThat(car1).isNotNull();
-        assertTrue(car1.getRentedByClient()==client.getRentedCar());
-
+        Car carRented = objectMapper.readValue(result.getResponse().getContentAsString(), Car.class);
+        assertThat(carRented).isNotNull();
+        assertTrue(carRented.getRentedByClient()==clientInRentCarMethod.getClientId());
     }
 
     @Test
